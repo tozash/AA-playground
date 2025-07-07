@@ -31,7 +31,7 @@ async function main() {
 
 // ------------ your numbers ------------
 const callGasLimit          = 200_000n;
-const verificationGasLimit  = 200_000n;
+const verificationGasLimit  = 500_000n;
 
 const maxFeePerGas          = hre.ethers.parseUnits("10", "gwei");   // bigint
 const maxPriorityFeePerGas  = hre.ethers.parseUnits("5",  "gwei");
