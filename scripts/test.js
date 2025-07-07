@@ -12,10 +12,19 @@ async function main() {
 
   const sender = await factory.createAccount(owner, SALT);
   const senderpredicted = await factory.getAddress(owner, SALT);
+  // Compute the account address without deploying
+  const predicted = await factory.getAddress(owner, SALT);
 
   //assert.equal(sender, senderpredicted);
+  // callStatic lets us execute the call and get its return value
+  // without submitting a transaction
+  const deployedAddress = await factory.callStatic.createAccount(owner, SALT);
 
   console.log(`Sender: ${sender} Predicted: ${senderpredicted}`);
+  const tx = await factory.createAccount(owner, SALT);
+  await tx.wait();
+
+  console.log(`Account deployed at: ${deployedAddress}\nPredicted address : ${predicted}`);
 }
 
 main().catch((error) => {

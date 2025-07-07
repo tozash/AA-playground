@@ -72,7 +72,7 @@ contract AccountFactory2 {
      * @param salt   same salt you’ll pass to createAccount
      */
 
-    function getAddress(address owner, uint256 salt)
+    function getPredictedAddress(address owner, uint256 salt)
         external
         view
         returns (address predicted)
