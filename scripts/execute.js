@@ -12,12 +12,20 @@ async function main() {
 
   const ep = await hre.ethers.getContractAt("EntryPoint", ENTRYPOINT_ADDRESS);
 
-  const factory = await hre.ethers.getContractAt("AccountFactory2", FACTORY_ADDRESS);
-  const initCode = FACTORY_ADDRESS + factory.interface.encodeFunctionData("createAccount", [owner, SALT]).slice(2);
+  const factory = await hre.ethers.getContractAt(
+    "AccountFactory2",
+    FACTORY_ADDRESS
+  );
+  const initCode =
+    FACTORY_ADDRESS +
+    factory.interface
+      .encodeFunctionData("createAccount", [owner, SALT])
+      .slice(2);
 
   const Account = await hre.ethers.getContractFactory("Account");
 
-  const sender = await factory.getAddress(owner, SALT);
+  // AccountFactory2 does not implement getAddress - use getPredictedAddress
+  const sender = await factory.getPredictedAddress(owner, SALT);
 
 
 
