@@ -1,0 +1,50 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "UserOperationLib",
+  "sourceName": "@account-abstraction/contracts/core/UserOperationLib.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "PAYMASTER_DATA_OFFSET",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PAYMASTER_POSTOP_GAS_OFFSET",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PAYMASTER_VALIDATION_GAS_OFFSET",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60a76032600b8282823980515f1a607314602657634e487b7160e01b5f525f60045260245ffd5b305f52607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106046575f3560e01c806325093e1b14604a578063b29a8ff4146063578063ede3150214606a575b5f5ffd5b6051602481565b60405190815260200160405180910390f35b6051601481565b605160348156fea2646970667358221220cc7c473c861be419b7e87499173d8cadee529a973666bfc4bba3a9dedef90bf764736f6c634300081c0033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600436106046575f3560e01c806325093e1b14604a578063b29a8ff4146063578063ede3150214606a575b5f5ffd5b6051602481565b60405190815260200160405180910390f35b6051601481565b605160348156fea2646970667358221220cc7c473c861be419b7e87499173d8cadee529a973666bfc4bba3a9dedef90bf764736f6c634300081c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
