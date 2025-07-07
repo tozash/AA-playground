@@ -57,7 +57,7 @@ contract AccountFactory2 {
     {
         Account account = new Account{
             salt: bytes32(_salt)
-        }(_entryPoint, _owner);
+        }(_owner, _entryPoint);
 
         return address(account);
     }
