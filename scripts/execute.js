@@ -57,7 +57,7 @@ const accountGasLimits = packUint128(
   const userOp = {
     sender: sender,
     nonce: await ep.getNonce(sender, 0),
-    initCode: "0x", //initCode,
+    initCode: initCode,
     callData: Account.interface.encodeFunctionData("execute"),
     // ✅ gas limits
     accountGasLimits: accountGasLimits,

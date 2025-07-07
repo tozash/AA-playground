@@ -57,7 +57,7 @@ contract AccountFactory2 {
     {
         Account account = new Account{
             salt: bytes32(_salt)
-        }(_entryPoint, _owner);
+        }(_owner, _entryPoint);
 
         return address(account);
     }
@@ -80,7 +80,7 @@ contract AccountFactory2 {
         // 1. Re-build the creation byte-code (constructor + args)
         bytes memory initCode = abi.encodePacked(
             type(Account).creationCode,
-            abi.encode(_entryPoint, owner)
+            abi.encode(owner, _entryPoint)
         );
 
         // 2. Hash as defined by the CREATE2 spec
