@@ -1,0 +1,120 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Paymaster",
+  "sourceName": "contracts/paymaster.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "enum IPaymaster.PostOpMode",
+          "name": "mode",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "context",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint256",
+          "name": "actualGasCost",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "actualUserOpFeePerGas",
+          "type": "uint256"
+        }
+      ],
+      "name": "postOp",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "initCode",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "callData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "accountGasLimits",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "preVerificationGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "gasFees",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "paymasterAndData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct PackedUserOperation",
+          "name": "",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "validatePaymasterUserOp",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "context",
+          "type": "bytes"
+        },
+        {
+          "internalType": "uint256",
+          "name": "validationData",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600e575f5ffd5b506101e08061001c5f395ff3fe608060405234801561000f575f5ffd5b5060043610610034575f3560e01c806352b7512c146100385780637c627b2114610074575b5f5ffd5b61005d61004636600461008b565b5050604080515f8082526020820190925292909150565b60405161006b9291906100da565b60405180910390f35b610089610082366004610116565b5050505050565b005b5f5f5f6060848603121561009d575f5ffd5b833567ffffffffffffffff8111156100b3575f5ffd5b840161012081870312156100c5575f5ffd5b95602085013595506040909401359392505050565b604081525f83518060408401528060208601606085015e5f606082850101526060601f19601f8301168401019150508260208301529392505050565b5f5f5f5f5f6080868803121561012a575f5ffd5b853560038110610138575f5ffd5b9450602086013567ffffffffffffffff811115610153575f5ffd5b8601601f81018813610163575f5ffd5b803567ffffffffffffffff811115610179575f5ffd5b88602082840101111561018a575f5ffd5b95986020919091019750949560408101359560609091013594509250505056fea2646970667358221220cc82218659732a5ea75df93c27648cb8e39b1ec281e1d3696b69886fc48b844064736f6c634300081c0033",
+  "deployedBytecode": "0x608060405234801561000f575f5ffd5b5060043610610034575f3560e01c806352b7512c146100385780637c627b2114610074575b5f5ffd5b61005d61004636600461008b565b5050604080515f8082526020820190925292909150565b60405161006b9291906100da565b60405180910390f35b610089610082366004610116565b5050505050565b005b5f5f5f6060848603121561009d575f5ffd5b833567ffffffffffffffff8111156100b3575f5ffd5b840161012081870312156100c5575f5ffd5b95602085013595506040909401359392505050565b604081525f83518060408401528060208601606085015e5f606082850101526060601f19601f8301168401019150508260208301529392505050565b5f5f5f5f5f6080868803121561012a575f5ffd5b853560038110610138575f5ffd5b9450602086013567ffffffffffffffff811115610153575f5ffd5b8601601f81018813610163575f5ffd5b803567ffffffffffffffff811115610179575f5ffd5b88602082840101111561018a575f5ffd5b95986020919091019750949560408101359560609091013594509250505056fea2646970667358221220cc82218659732a5ea75df93c27648cb8e39b1ec281e1d3696b69886fc48b844064736f6c634300081c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

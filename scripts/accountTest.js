@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 
-const ACCOUNT_ADDRESS = "0x883e21418DFbB439fEBaF06683FFF52AFBc9e842";
+const ACCOUNT_ADDRESS = "0xe52da9C47c1aCdffd104a348f27CCD7333abe7Ad";
 
 async function main() {
     const account = await ethers.getContractAt("Account", ACCOUNT_ADDRESS);

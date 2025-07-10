@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\teona\\Desktop\\smartaccounts\\contracts\\Account.sol": {
-      "lastModificationDate": 1751929567562,
-      "contentHash": "a813aedfec137c94c6964b9016ee052f",
+      "lastModificationDate": 1752172596471,
+      "contentHash": "57027ebe1ffab23778cdca7a44a6994c",
       "sourceName": "contracts/Account.sol",
       "solcConfig": {
         "version": "0.8.28",
@@ -31,7 +31,10 @@
       },
       "imports": [
         "@account-abstraction/contracts/core/EntryPoint.sol",
-        "@account-abstraction/contracts/interfaces/IAccount.sol"
+        "@account-abstraction/contracts/interfaces/IAccount.sol",
+        "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "hardhat/console.sol"
       ],
       "versionPragmas": [
         "^0.8.28"
@@ -1215,6 +1218,116 @@
       ],
       "artifacts": [
         "IERC165"
+      ]
+    },
+    "C:\\Users\\teona\\Desktop\\smartaccounts\\contracts\\paymaster.sol": {
+      "lastModificationDate": 1751967664425,
+      "contentHash": "0869205952bcfd718bb106754ca4e211",
+      "sourceName": "contracts/paymaster.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 50
+          },
+          "evmVersion": "cancun",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@account-abstraction/contracts/interfaces/IPaymaster.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.28"
+      ],
+      "artifacts": [
+        "Paymaster"
+      ]
+    },
+    "C:\\Users\\teona\\Desktop\\smartaccounts\\node_modules\\hardhat\\console.sol": {
+      "lastModificationDate": 1751724435011,
+      "contentHash": "681c532e816169606d13a5fe8b475074",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 50
+          },
+          "evmVersion": "cancun",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "C:\\Users\\teona\\Desktop\\smartaccounts\\node_modules\\@openzeppelin\\contracts\\utils\\cryptography\\ECDSA.sol": {
+      "lastModificationDate": 1751741567608,
+      "contentHash": "81de029d56aa803972be03c5d277cb6c",
+      "sourceName": "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 50
+          },
+          "evmVersion": "cancun",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "ECDSA"
       ]
     }
   }

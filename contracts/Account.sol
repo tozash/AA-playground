@@ -3,6 +3,9 @@ pragma solidity ^0.8.28;
 
 import "@account-abstraction/contracts/core/EntryPoint.sol";
 import "@account-abstraction/contracts/interfaces/IAccount.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
+import "hardhat/console.sol";
 
 contract Account is IAccount {
     uint public count;
@@ -14,14 +17,16 @@ contract Account is IAccount {
         entryPoint = EntryPoint(payable(_entryPoint));
     }
     
-    function validateUserOp( PackedUserOperation calldata , bytes32 , uint256 missingAccountFunds) external returns (uint256 validationData) {
+    function validateUserOp( PackedUserOperation calldata userOp, bytes32 userOpHash, uint256 missingAccountFunds) external returns (uint256 validationData) {
         require(msg.sender == address(entryPoint), "AA: not EntryPoint");
         // No signature check in this toy demo – always accept
         // If the wallet lacks deposit, top-up with any ETH sent along
         if (missingAccountFunds > 0) {
             entryPoint.depositTo{value: missingAccountFunds}(address(this));
-        }
-        return 0;
+        }        
+        address recovered = ECDSA.recover(MessageHashUtils.toEthSignedMessageHash(abi.encodePacked(userOpHash)), userOp.signature);
+        console.log("recovered", recovered);
+        return owner == recovered ? 0 : 1;
     }
 
     function execute() external {
@@ -44,8 +49,8 @@ contract AccountFactory2 {
 
     constructor(address entryPoint) {
         _entryPoint = entryPoint;
-    }
-
+    }    
+    
     /**
      * Deploys a new Account using CREATE2.
      * @param _owner   EOA that will control the Account
@@ -55,6 +60,11 @@ contract AccountFactory2 {
         external
         returns (address)
     {
+        address addr = getPredictedAddress(_owner, _salt);
+        if (addr.code.length > 0) {
+            return addr;
+        }
+
         Account account = new Account{
             salt: bytes32(_salt)
         }(_owner, _entryPoint);
@@ -71,9 +81,8 @@ contract AccountFactory2 {
      * @param owner  same owner you’ll pass to createAccount
      * @param salt   same salt you’ll pass to createAccount
      */
-
     function getPredictedAddress(address owner, uint256 salt)
-        external
+        public
         view
         returns (address predicted)
     {
@@ -96,4 +105,6 @@ contract AccountFactory2 {
         // 3. Last 20 bytes → address
         predicted = address(uint160(uint256(hash)));
     }
+
+
 }
